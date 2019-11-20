@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#logo-image { 
+    width: 272px;
+    height: 92px;
+}
