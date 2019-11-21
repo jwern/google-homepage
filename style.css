@@ -3,12 +3,14 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.top-nav ul {
+.top-nav ul,
+.bottom-nav ul {
     margin: 20px 16px;
     padding: 0;
 }
 
-.top-nav li a {
+.top-nav li a,
+.bottom-nav li a {
     padding: 4px;
     margin: 4px;
     font-size: 13px;
@@ -16,25 +18,27 @@ html, body {
     text-decoration: none;
 }
 
-.top-nav li a:hover {
+.top-nav li a:hover,
+.bottom-nav li a:hover {
     text-decoration: underline;
 }
 
 .top-nav {
     display: flex;
-    max-width: 100%;
     min-width: 800px;
     justify-content: space-between;
     margin-bottom: 80px;
 }
 
 #top-nav-left li,
-#top-nav-right li {
+#top-nav-right li,
+#bottom-nav-left li,
+#bottom-nav-right li {
     display: inline;
 }
 
 #top-nav-left li a {
-    color: #464646
+    color: #464646;
 }
 
 #top-nav-right {
@@ -50,6 +54,23 @@ html, body {
 
 #apps-grid-image:hover {
     opacity: 80%;
+}
+
+.bottom-nav {
+    background-color: #f2f2f2;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    min-width: 800px;
+    border: 1px solid rgb(223, 223, 223);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-nav li a {
+    color: #535353;
 }
 
 #sign-in-button {
@@ -117,4 +138,6 @@ html, body {
     border: 1px solid lightgray;
     padding: 9px;
     color:  #282828;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 0.5px 0px #A9ADAA;
 }
