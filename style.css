@@ -3,31 +3,96 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.top-nav ul {
+    margin: 20px 16px;
+    padding: 0;
+}
+
+.top-nav li a {
+    padding: 4px;
+    margin: 4px;
+    font-size: 13px;
+    color: #303030;
+    text-decoration: none;
+}
+
+.top-nav li a:hover {
+    text-decoration: underline;
+}
+
+.top-nav {
+    display: flex;
+    max-width: 100%;
+    min-width: 800px;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+#top-nav-left li,
+#top-nav-right li {
+    display: inline;
+}
+
+#top-nav-left li a {
+    color: #464646
+}
+
+#top-nav-right {
+    margin-right: 10px;
+}
+
+#apps-grid-image {
+    height: 16px;
+    width: 16px;
+    opacity: 50%;
+    padding-right: 6px;
+}
+
+#apps-grid-image:hover {
+    opacity: 80%;
+}
+
+#sign-in-button {
+    background-color: rgb(65, 131, 230);
+    color: white;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 2px;
+    cursor: default;
+}
+
+#sign-in-button:hover {
+    text-decoration: none;
+}
+
 .main-body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
+    min-width: 800px;
 }
 
 #logo-image { 
     width: 272px;
     height: 92px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 #search-bar {
     background: url("./images/magnifying-glass-lighter.png") no-repeat 3% 50%;
     background-size: 16px;
-    width: 400px;
-    height: 36px;
+    width: 530px;
+    height: 40px;
     border-radius: 20px;
     border-width: 2px;
     border-color: #f2f2f2;
     border-style: solid;
     padding-left: 45px;
-    box-shadow: 0.5px 0.5px 3px rgba(58, 57, 57, 0.2);
+}
+
+#search-bar:hover,
+#search-bar:focus {
+    box-shadow: 0.5px 1px 3px rgba(58, 57, 57, 0.2);
 }
 
 .button-row {
@@ -46,4 +111,10 @@ html, body {
     border-radius: 3px;
     color: gray;
     font-size: 14px;
+}
+
+.search-button:hover {
+    border: 1px solid lightgray;
+    padding: 9px;
+    color:  #282828;
 }
