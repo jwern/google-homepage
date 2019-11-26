@@ -5,13 +5,13 @@ html, body {
 
 .top-nav ul,
 .bottom-nav ul {
-    margin: 20px 16px;
+    margin: 22px 18px;
     padding: 0;
 }
 
 .top-nav li a,
 .bottom-nav li a {
-    padding: 4px;
+    padding: 3px;
     margin: 4px;
     font-size: 13px;
     color: #303030;
@@ -27,7 +27,9 @@ html, body {
     display: flex;
     min-width: 800px;
     justify-content: space-between;
-    margin-bottom: 80px;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 60px;
 }
 
 #top-nav-left li,
@@ -42,14 +44,19 @@ html, body {
 }
 
 #top-nav-right {
-    margin-right: 10px;
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+}
+
+#top-nav-right li {
+    padding: 2px;
 }
 
 #apps-grid-image {
-    height: 16px;
-    width: 16px;
     opacity: 50%;
-    padding-right: 6px;
+    margin-right: 7px;
+    margin-left: 5px;
 }
 
 #apps-grid-image:hover {
@@ -62,7 +69,7 @@ html, body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 39px;
     min-width: 800px;
     border: 1px solid rgb(223, 223, 223);
     justify-content: space-between;
@@ -71,15 +78,25 @@ html, body {
 
 .bottom-nav li a {
     color: #535353;
+    padding: 8px;
+}
+
+#bottom-nav-left {
+    margin-left: 18px;
+}
+
+#bottom-nav-right {
+    margin-right: 18px;
 }
 
 #sign-in-button {
-    background-color: rgb(65, 131, 230);
+    background-color: rgb(68, 135, 235);
     color: white;
     font-weight: bold;
-    padding: 8px 14px;
-    border-radius: 2px;
+    padding: 7.5px 13px;
+    border-radius: 1.5px;
     cursor: default;
+    text-align: center;
 }
 
 #sign-in-button:hover {
@@ -97,6 +114,7 @@ html, body {
     width: 272px;
     height: 92px;
     margin-bottom: 25px;
+    margin-top: 40px;
 }
 
 #search-bar {
