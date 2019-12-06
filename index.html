@@ -4,42 +4,61 @@
         <title>Google</title>
         <meta charset="utf-8">
         <link href="./normalize.css" type="text/css" rel="stylesheet">
-        <link href="./style.css" type="text/css" rel="stylesheet">
+        <link href="./style_grid.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <div class="top-nav">
-            <ul id="top-nav-left">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Store</a></li>
-            </ul>
-            <ul id="top-nav-right">
-                <li><a href="#">Gmail</a></li>
-                <li><a href="#">Images</a></li>
-                <li><a href="#"><img src="./images/google-apps-official.png" id="apps-grid-image"></a></li>
-                <li><a href="#" id="sign-in-button">Sign In</a></li>
-            </ul>
+        <div class="wrapper">
+            <div class="top-nav-left">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Store</a></li>
+                </ul>
+            </div>
+            <div class="top-nav-right">
+                <ul>
+                    <li><a href="#">Gmail</a></li>
+                    <li><a href="#">Images</a></li>
+                    <li class="align-me"><a href="#"><img src="./images/google-apps-official.png" id="apps-grid-image"></a></li>
+                    <li><a href="#" id="sign-in-button">Sign In</a></li>
+                </ul>
+            </div>
+            <div id="mobile-header">
+                <ul>
+                    <li id="mobile-menu-icon"><a href="#"><ion-icon name="menu"></ion-icon></a></li>
+                    <li id="mobile-nav-all-link"><a href="#">ALL</a></li>
+                    <li><a href="#">IMAGES</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><img src="./images/google-apps-official.png" id="apps-grid-image"></a></li>
+                    <li><a href="#" id="mobile-sign-in-button">Sign in</a></li>
+                </ul>
+            </div>
+            <div class="main-body">
+                <img id="logo-image" src="./images/google-logo.png">
+                <form>
+                    <input id="search-bar" type="text">
+                    <div class="button-row">
+                        <input class="search-button" type="submit" value="Google Search">
+                        <input class="search-button" type="submit" value="I'm Feeling Lucky">
+                    </div>
+                </form>
+            </div>
+            <div class="bottom-nav-left">
+                <ul>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">How Search works</a></li>
+                </ul>
+            </div>
+            <div id="footer-filler"></div>
+            <div class="bottom-nav-right">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="main-body">
-            <img id="logo-image" src="./images/google-logo.png">
-            <form>
-                <input id="search-bar" type="text">
-                <div class="button-row">
-                    <input class="search-button" type="submit" value="Google Search">
-                    <input class="search-button" type="submit" value="I'm Feeling Lucky">
-                </div>
-            </form>
-        </div>
-        <div class="bottom-nav">
-            <ul id="bottom-nav-left">
-                <li><a href="#">Advertising</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">How Search works</a></li>
-            </ul>
-            <ul id="bottom-nav-right">
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </div>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </body>
 </html>

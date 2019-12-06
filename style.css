@@ -3,16 +3,22 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .top-nav ul,
 .bottom-nav ul {
-    margin: 22px 18px;
-    padding: 0;
+    /* margin: 22px 18px;
+    padding: 0; */
 }
 
 .top-nav li a,
 .bottom-nav li a {
-    padding: 3px;
-    margin: 4px;
+    /* padding: 3px;
+    margin: 4px; */
     font-size: 13px;
     color: #303030;
     text-decoration: none;
@@ -24,12 +30,15 @@ html, body {
 }
 
 .top-nav {
-    display: flex;
-    min-width: 800px;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    margin-bottom: 60px;
+    display: grid;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    /* min-width: 800px;
+    margin-bottom: 60px; */
+}
+
+.top-nav li {
+    padding: 8px;
 }
 
 #top-nav-left li,
@@ -43,20 +52,24 @@ html, body {
     color: #464646;
 }
 
+#top-nav-left {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
 #top-nav-right {
-    margin-right: 24px;
-    display: flex;
-    align-items: center;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
 }
 
 #top-nav-right li {
-    padding: 2px;
+    /* padding: 2px; */
 }
 
 #apps-grid-image {
     opacity: 50%;
-    margin-right: 7px;
-    margin-left: 5px;
+    /* margin-right: 7px;
+    margin-left: 5px; */
 }
 
 #apps-grid-image:hover {
@@ -104,17 +117,20 @@ html, body {
 }
 
 .main-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    align-content: center;
+    justify-content: center;
     min-width: 800px;
 }
 
 #logo-image { 
     width: 272px;
     height: 92px;
-    margin-bottom: 25px;
-    margin-top: 40px;
+    justify-self: center;
+    /* margin-bottom: 25px;
+    margin-top: 40px; */
 }
 
 #search-bar {
@@ -126,7 +142,7 @@ html, body {
     border-width: 2px;
     border-color: #f2f2f2;
     border-style: solid;
-    padding-left: 45px;
+    /* padding-left: 45px; */
 }
 
 #search-bar:hover,
