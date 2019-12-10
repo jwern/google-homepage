@@ -1,6 +1,7 @@
 /* Hide elements specific to the mobile version */
 #mobile-header,
-#mobile-footer {
+#mobile-footer,
+#mobile-category-icons {
     display: none;
 }
 
@@ -159,7 +160,7 @@ ul {
     justify-self: stretch;
     display: grid;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 20px 2px;
 }
 
 .bottom-nav-right {

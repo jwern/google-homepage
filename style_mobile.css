@@ -80,6 +80,37 @@ form {
     width: 150px;
 }
 
+#mobile-category-icons {
+    display: grid;
+    width: 100%;
+}
+
+#mobile-category-icons ul {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 50%);
+    grid-auto-flow: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+#mobile-category-icons ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#mobile-category-icons ul li a {
+    color: rgb(94, 94, 94);
+    opacity: 90%;
+}
+
+#mobile-category-icons ion-icon {
+    margin-top: 40px;
+    padding-bottom: 10px;
+    color: rgb(243, 200, 60);
+}
+
 #mobile-footer {
     display: grid;
     grid-area: mobile-footer;
