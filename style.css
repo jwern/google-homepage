@@ -122,6 +122,7 @@ ul {
 #search-bar:hover,
 #search-bar:focus {
     box-shadow: 0.5px 1px 3px rgba(58, 57, 57, 0.2);
+    outline: none;
 }
 
 .button-row {
