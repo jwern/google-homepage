@@ -1,0 +1,133 @@
+/* Hide elements specific to the desktop version */
+.top-nav-left,
+.top-nav-right,
+.bottom-nav-left,
+.bottom-nav-right,
+.button-row,
+#footer-filler {
+    display: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: minmax(max-content, 100%);
+    grid-template-rows: auto 2fr auto;
+    grid-template-areas:
+        "mobile-header"
+        "main-content"
+        "mobile-footer";
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#mobile-header {
+    grid-area: mobile-header;
+    display: inline-flex;
+    justify-content: space-between;
+    height: auto;
+    align-items: center;
+}
+
+#mobile-header ul,
+#mobile-header li {
+    display: inline-flex;
+    padding: 8px;
+    align-items: center;
+}
+
+#mobile-header ul li a:not(#mobile-sign-in-button) {
+    color: rgb(102, 102, 102);
+    font-weight: 600;
+}
+
+#mobile-header ul li#mobile-nav-all-link a {
+    color: rgb(57, 114, 199);
+    border-bottom: 2px solid rgb(57, 114, 199);
+    padding-bottom: 13px;
+    margin-bottom: -13px;
+}
+
+#mobile-sign-in-button {
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    color: rgb(94, 94, 94);
+    font-size: 12px;
+}
+
+.main-body {
+    margin-top: 60px;
+}
+
+form {
+    width: 85%;
+    display: grid;
+}
+
+#search-bar {
+    justify-self: center;
+    width: 100%;
+    background: none;
+    background: url("./images/mobile-search-blue.png") no-repeat;
+    background-size: contain;
+    background-position: right;
+    border: 1px solid #ebebeb;
+}
+
+#logo-image {
+    width: 150px;
+}
+
+#mobile-footer {
+    display: grid;
+    grid-area: mobile-footer;
+    justify-items: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding-bottom: 20px;
+}
+
+#mobile-footer ul {
+    display: block;
+    margin-top: 20px;
+}
+
+#mobile-footer ul li {
+    display: inline-block;
+    padding: 0 8px;
+}
+
+#mobile-footer ul li a {
+    color: rgb(94, 94, 94);
+}
+
+#mobile-footer {
+    border: 1px #e2e2e2 solid;
+}
+
+#mobile-location {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+
+#mobile-location #location-icon {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: #929292;
+    border-radius: 100%;
+    margin-right: 4px;
+}
+
+#mobile-location #location-unknown {
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+}
+
+ion-icon {
+    font-size: 24px;
+}

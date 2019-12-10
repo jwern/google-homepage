@@ -1,105 +1,88 @@
+/* Hide elements specific to the mobile version */
+#mobile-header,
+#mobile-footer {
+    display: none;
+}
+
 html, body {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    display: grid;
-    grid-template-rows: 50px 1fr 50px;
-    grid-template-columns: 1fr 1fr 1fr;
+ul {
+    padding: 0;
+    margin: 0;
 }
 
-.top-nav ul,
-.bottom-nav ul {
-    /* margin: 22px 18px;
-    padding: 0; */
-}
-
-.top-nav li a,
-.bottom-nav li a {
-    /* padding: 3px;
-    margin: 4px; */
+.wrapper ul li a {
     font-size: 13px;
     color: #303030;
     text-decoration: none;
 }
 
-.top-nav li a:hover,
-.bottom-nav li a:hover {
+.wrapper ul li a:hover {
     text-decoration: underline;
 }
 
-.top-nav {
+.top-nav-left {
+    grid-area: header-left;
+}
+
+.top-nav-right {
+    grid-area: header-right;
+}
+
+.bottom-nav-left {
+    grid-area: footer-left;
+}
+
+#footer-filler {
+    grid-area: footer-center;
+    height: 30px;
+}
+
+.wrapper {
     display: grid;
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-    /* min-width: 800px;
-    margin-bottom: 60px; */
+    grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 2fr) minmax(max-content, 1fr);
+    grid-template-rows: auto 2fr auto;
+    grid-template-areas:
+        "header-left . header-right"
+        "main-content main-content main-content "
+        "footer-left footer-center footer-right";
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
-.top-nav li {
-    padding: 8px;
+.top-nav-left,
+.bottom-nav-left {
+    justify-self: start;
 }
 
-#top-nav-left li,
-#top-nav-right li,
-#bottom-nav-left li,
-#bottom-nav-right li {
+.top-nav-left,
+.top-nav-right {
+    padding: 15px 15px;
+}
+
+.top-nav-right,
+.bottom-nav-right {
+    justify-self: end;
+}
+
+.top-nav-left li,
+.top-nav-right li,
+.bottom-nav-left li,
+.bottom-nav-right li {
     display: inline;
-}
-
-#top-nav-left li a {
-    color: #464646;
-}
-
-#top-nav-left {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-
-#top-nav-right {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-}
-
-#top-nav-right li {
-    /* padding: 2px; */
+    padding: 8px;
 }
 
 #apps-grid-image {
     opacity: 50%;
-    /* margin-right: 7px;
-    margin-left: 5px; */
 }
 
 #apps-grid-image:hover {
     opacity: 80%;
-}
-
-.bottom-nav {
-    background-color: #f2f2f2;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 39px;
-    min-width: 800px;
-    border: 1px solid rgb(223, 223, 223);
-    justify-content: space-between;
-    align-items: center;
-}
-
-.bottom-nav li a {
-    color: #535353;
-    padding: 8px;
-}
-
-#bottom-nav-left {
-    margin-left: 18px;
-}
-
-#bottom-nav-right {
-    margin-right: 18px;
 }
 
 #sign-in-button {
@@ -117,32 +100,22 @@ body {
 }
 
 .main-body {
+    grid-area: main-content;
     display: grid;
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
-    align-content: center;
-    justify-content: center;
-    min-width: 800px;
-}
-
-#logo-image { 
-    width: 272px;
-    height: 92px;
-    justify-self: center;
-    /* margin-bottom: 25px;
-    margin-top: 40px; */
+    align-self: start;
+    justify-items: center;
+    margin-top: 110px;
 }
 
 #search-bar {
     background: url("./images/magnifying-glass-lighter.png") no-repeat 3% 50%;
     background-size: 16px;
-    width: 530px;
+    width: 450px;
     height: 40px;
-    border-radius: 20px;
-    border-width: 2px;
-    border-color: #f2f2f2;
-    border-style: solid;
-    /* padding-left: 45px; */
+    border: 2px solid #ebebeb;
+    border-radius: 26px;
+    padding-left: 45px;
+    margin-top: 30px;
 }
 
 #search-bar:hover,
@@ -174,4 +147,29 @@ body {
     color:  #282828;
     background-color: #f3f3f3;
     box-shadow: 0px 0px 0.5px 0px #A9ADAA;
+    cursor: pointer;
+}
+
+.bottom-nav-left,
+.bottom-nav-right,
+#footer-filler {
+    background-color: #f2f2f2;
+    border-top: 1px solid rgb(223, 223, 223);
+    height: 40px;
+    justify-self: stretch;
+    display: grid;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.bottom-nav-right {
+    display: grid;
+    justify-content: end;
+    grid-area: footer-right;
+}
+
+.bottom-nav-left ul li a,
+.bottom-nav-right ul li a {
+    color: #585858;
+    padding: 2px;
 }
