@@ -2,7 +2,7 @@
 
 # Project: HTML/CSS - Google Homepage #
 
-The first HTML/CSS project in The Odin Project's [curriculum](http://www.theodinproject.com/courses/web-development-101/lessons/html-css).  
+This is my student solution of the first HTML/CSS project in The Odin Project's [curriculum](http://www.theodinproject.com/courses/web-development-101/lessons/html-css).  
 The goal is to recreate an existing webpage's appearance, specifically: the [Google homepage](https://web.archive.org/web/20191130234759/https://www.google.com/).
 
 
@@ -19,7 +19,7 @@ The final result is not **perfect**, but I think it's quite close.
 
 ## Challenges ##
 
-I spent the most time learning and understanding grid.  There are some grid tricks, such as using *minmax()* with *max-content*, or using *auto* to keep headers and footers at the top and bottom respectively, which seem obvious now but I had no idea existed for much of the project.  
+I spent the most time learning and understanding grid.  There are some grid tricks, such as using *minmax()* with *max-content* to create responsive columns, or using *auto* to keep headers and footers at the top and bottom respectively, which seem obvious now but I had no idea existed for much of the project.  
 
 Including a mobile view was also more challenging than anticipated, primarily because Google's mobile homepage is significantly different than its desktop version - not just in layout but also content-wise.  This led to a lot of elements set to *display: none* in one view or the other, which feels a bit messy to me.
 
@@ -35,7 +35,7 @@ Some sites that were a spectacular help in learning about grid were [Smashing Ma
 
 Once I learn JavaScript, I'd like to return to this page and update the "I'm Feeling Lucky" button to match Google's: upon hover, it spins and lands on a random other phrase, e.g. "I'm Feeling Artistic," "I'm Feeling Stellar," "I'm Feeling Playful," etc.
 
-I'd also like to update the hourglass icon on the mobile view.  It's simply a static image file right now, but I'd prefer to use an hourglass icon with CSS background stylings behind it.
+I'd also like to update the hourglass icon on the mobile view search bar.  It's simply a static image file right now, but I'd prefer to use an hourglass icon with CSS background stylings behind it as it will fit the form better.
 
 ## Technologies ##
 
