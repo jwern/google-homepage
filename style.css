@@ -79,11 +79,11 @@ ul {
 }
 
 #apps-grid-image {
-    opacity: 50%;
+    opacity: 0.5;
 }
 
 #apps-grid-image:hover {
-    opacity: 80%;
+    opacity: 0.8;
 }
 
 #sign-in-button {
@@ -109,7 +109,7 @@ ul {
 }
 
 #search-bar {
-    background: url("./images/magnifying-glass-lighter.png") no-repeat 3% 50%;
+    background: url("./images/magnifying-glass-lighter.png") no-repeat 14px center;
     background-size: 16px;
     width: 450px;
     height: 40px;
