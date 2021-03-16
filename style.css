@@ -1,3 +1,31 @@
+@keyframes slidein {
+    0% {
+      top: -50%;
+    }
+    25% {
+      top: -25%;
+    }
+    50% {
+      top: -10%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  @keyframes slideout {
+    0% {
+      top: 0;
+    }
+    25% {
+      top: 25%;
+    }
+    50% {
+      top: 50%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
 /* Hide elements specific to the mobile version */
 #mobile-header,
 #mobile-footer,
@@ -171,4 +199,21 @@ ul {
 .bottom-nav ul li a {
     color: #585858;
     padding: 2px;
+}
+
+#lucky-button {
+    overflow-y: hidden;
+}
+
+#lucky-text {
+    all: unset;
+    position: relative;
+}
+
+#lucky-text.text-out {
+    animation: slideout 200ms linear;
+}
+
+#lucky-text.text-in {
+    animation: slidein 200ms linear;
 }
