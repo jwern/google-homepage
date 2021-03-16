@@ -4,7 +4,7 @@ const newText = function(buttonText) {
     text.classList.remove('text-out');
     text.classList.add('text-in');
     text.value = `${buttonText}`;
-  }, 200);
+  }, 100);
 }
 
 const oldText = function() {
@@ -13,26 +13,40 @@ const oldText = function() {
   text.classList.add('text-out');
 }
 
+const setRandomNum = function() {
+  const maxNum = 5;
+  const minNum = 2;
+  let randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+  return randomNum;
+}
+
 let interval = 0;
+let randomNum = setRandomNum();
 
 const resetButton = function() {
   interval = 0;
-  const text = document.getElementById('lucky-text');
-  text.value = "I'm Feeling Lucky";
+  randomNum = setRandomNum();
+  newText("I'm Feeling Lucky");
 }
 
 const changeText = function() {
-  const buttonText = ["First text", "Second text", "Third text"];
-  
+  const buttonText = [
+    "I'm Feeling Saucy", 
+    "I'm Feeling Spicy", 
+    "I'm Feeling Hungry",
+    "I'm Feeling Sleepy",
+    "I'm Feeling Icky",
+    "I'm Feeling Bored"
+  ];
+
   oldText();
   newText(buttonText[interval]);
 
   interval++
-  console.log(interval);
-  if (interval < buttonText.length) {
-    setTimeout(changeText, 400);
-  } else {
-    setTimeout(resetButton, 1000);
+  console.log(randomNum);
+  if (interval < randomNum) {
+    setTimeout(changeText, 200);
   }
 
   // buttonText.forEach(line => {
@@ -50,3 +64,4 @@ const changeText = function() {
 
 const button = document.getElementById('lucky-button');
 button.addEventListener('mouseenter', changeText);
+button.addEventListener('mouseleave', resetButton);

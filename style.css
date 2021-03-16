@@ -211,9 +211,9 @@ ul {
 }
 
 #lucky-text.text-out {
-    animation: slideout 200ms linear;
+    animation: slideout 100ms linear;
 }
 
 #lucky-text.text-in {
-    animation: slidein 200ms linear;
+    animation: slidein 100ms linear;
 }
