@@ -1,9 +1,9 @@
-const newText = function(buttonText) {
+const newText = function(inputText) {
   setTimeout(() => {
     const text = document.getElementById('lucky-text');
     text.classList.remove('text-out');
     text.classList.add('text-in');
-    text.value = `${buttonText}`;
+    text.value = `${inputText}`;
   }, 100);
 }
 
@@ -35,24 +35,18 @@ const randomNumCount = (() => {
   return { setRandomNum, getRandomNum };
 })();
 
-const buttonHoverStatus = (() => {
-  let buttonHover = false;
+// const buttonHoverStatus = (() => {
+//   let buttonHover = false;
 
-  const getHoverState = () => buttonHover;
-  const setHoverTrue = () => buttonHover = true;
-  const setHoverFalse = () => buttonHover = false;
+//   const getHoverState = () => buttonHover;
+//   const setHoverTrue = () => buttonHover = true;
+//   const setHoverFalse = () => buttonHover = false;
 
-  return { getHoverState, setHoverTrue, setHoverFalse };
-})();
+//   return { getHoverState, setHoverTrue, setHoverFalse };
+// })();
 
-const resetButton = function() {
-  updateTextInterval.reset();
-  randomNum = randomNumCount.setRandomNum();
-  newText("I'm Feeling Lucky");
-}
-
-const changeText = function() {
-  const buttonText = [
+const buttonText = (() => {
+  const text = [
     "I'm Feeling Saucy", 
     "I'm Feeling Spicy", 
     "I'm Feeling Hungry",
@@ -61,25 +55,36 @@ const changeText = function() {
     "I'm Feeling Bored"
   ];
 
+  const getText = () => text;
+
+  return { getText };
+})();
+
+let hoverTimeout;
+
+const resetButton = function() {
+  updateTextInterval.reset();
+  randomNum = randomNumCount.setRandomNum();
+  newText("I'm Feeling Lucky");
+}
+
+const changeText = function() {
   oldText();
-  newText(buttonText[updateTextInterval.getInterval()]);
+  newText(buttonText.getText()[updateTextInterval.getInterval()]);
   updateTextInterval.increment();
 
-  if (buttonHoverStatus.getHoverState() && updateTextInterval.getInterval() < randomNumCount.getRandomNum()) {
-    setTimeout(changeText, 200);
-  } else if (!buttonHoverStatus.getHoverState()) {
-    resetButton();
+  if (updateTextInterval.getInterval() < randomNumCount.getRandomNum()) {
+    hoverTimeout = setTimeout(changeText, 200);
   }
 }
 
 const feelingRandom = function() {
-  buttonHoverStatus.setHoverTrue();
   randomNumCount.setRandomNum();
   changeText();
 }
 
 const feelingLucky = function() {
-  buttonHoverStatus.setHoverFalse();
+  clearTimeout(hoverTimeout);
   resetButton();
 }
 
