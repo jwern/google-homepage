@@ -13,20 +13,41 @@ const oldText = function() {
   text.classList.add('text-out');
 }
 
-const setRandomNum = function() {
-  const maxNum = 5;
-  const minNum = 2;
-  let randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+const updateTextInterval = (() => {
+  let interval = 0;
+  const getInterval = () => interval;
+  const increment = () => interval++;
+  const reset = () => interval = 0;
+  return { getInterval, increment, reset };
+})();
 
-  return randomNum;
-}
+const randomNumCount = (() => {
+  let randomNum;
 
-let interval = 0;
-let randomNum = setRandomNum();
+  const setRandomNum = () => {
+    const maxNum = 5;
+    const minNum = 2;
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  }
+
+  const getRandomNum = () => randomNum;
+
+  return { setRandomNum, getRandomNum };
+})();
+
+const buttonHoverStatus = (() => {
+  let buttonHover = false;
+
+  const getHoverState = () => buttonHover;
+  const setHoverTrue = () => buttonHover = true;
+  const setHoverFalse = () => buttonHover = false;
+
+  return { getHoverState, setHoverTrue, setHoverFalse };
+})();
 
 const resetButton = function() {
-  interval = 0;
-  randomNum = setRandomNum();
+  updateTextInterval.reset();
+  randomNum = randomNumCount.setRandomNum();
   newText("I'm Feeling Lucky");
 }
 
@@ -41,27 +62,27 @@ const changeText = function() {
   ];
 
   oldText();
-  newText(buttonText[interval]);
+  newText(buttonText[updateTextInterval.getInterval()]);
+  updateTextInterval.increment();
 
-  interval++
-  console.log(randomNum);
-  if (interval < randomNum) {
+  if (buttonHoverStatus.getHoverState() && updateTextInterval.getInterval() < randomNumCount.getRandomNum()) {
     setTimeout(changeText, 200);
+  } else if (!buttonHoverStatus.getHoverState()) {
+    resetButton();
   }
+}
 
-  // buttonText.forEach(line => {
-  //   setInterval(() => {
-  //     oldText();
-  //     newText(line);
-  //   }, 500);
-  // })
-  
-  // buttonText.forEach(line => {
-  //   setTimeout(() => oldText(this), 200);
-  //   setTimeout(() => newText(line), 300);
-  // });
+const feelingRandom = function() {
+  buttonHoverStatus.setHoverTrue();
+  randomNumCount.setRandomNum();
+  changeText();
+}
+
+const feelingLucky = function() {
+  buttonHoverStatus.setHoverFalse();
+  resetButton();
 }
 
 const button = document.getElementById('lucky-button');
-button.addEventListener('mouseenter', changeText);
-button.addEventListener('mouseleave', resetButton);
+button.addEventListener('mouseenter', feelingRandom);
+button.addEventListener('mouseleave', feelingLucky);
