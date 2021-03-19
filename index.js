@@ -1,10 +1,10 @@
 const newText = function(inputText) {
-  console.log(inputText);
   setTimeout(() => {
     const text = document.getElementById('lucky-text');
     text.classList.remove('text-out');
     text.classList.add('text-in');
-    text.value = `${inputText}`;
+    text.textContent = `I'm Feeling ${inputText.text}`;
+    text.href = `${inputText.link}`;
   }, 100);
 }
 
@@ -22,38 +22,14 @@ const updateTextInterval = (() => {
   return { getInterval, increment, reset };
 })();
 
-const randomNumCount = (() => {
-  let randomNum;
-
-  const setRandomNum = () => {
-    const maxNum = 5;
-    const minNum = 2;
-    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-  }
-
-  const getRandomNum = () => randomNum;
-
-  return { setRandomNum, getRandomNum };
-})();
-
-// const buttonHoverStatus = (() => {
-//   let buttonHover = false;
-
-//   const getHoverState = () => buttonHover;
-//   const setHoverTrue = () => buttonHover = true;
-//   const setHoverFalse = () => buttonHover = false;
-
-//   return { getHoverState, setHoverTrue, setHoverFalse };
-// })();
-
 const buttonText = (() => {
   const text = [
-    "I'm Feeling Saucy", 
-    "I'm Feeling Spicy", 
-    "I'm Feeling Hungry",
-    "I'm Feeling Sleepy",
-    "I'm Feeling Icky",
-    "I'm Feeling Bored"
+    { text: "Relaxed", link: "https://tane.us/ac/" },
+    { text: "Nostalgic", link: "https://archive.org/web/" },
+    { text: "Cute", link: "https://www.reddit.com/r/aww/" },
+    { text: "Gamey", link: "https://pixelkin.org/game-picker/" },
+    { text: "Scientific", link: "https://naturalhistory.si.edu/visit/virtual-tour" },
+    { text: "Funny", link: "https://www.exocomics.com/" },
   ];
 
   let randomizeText = () => {
@@ -68,12 +44,27 @@ const buttonText = (() => {
   return { getText, randomizeText };
 })();
 
+const randomNumCount = (() => {
+  let randomNum;
+
+  const setRandomNum = () => {
+    const maxNum = buttonText.getText().length - 1;
+    const minNum = 2;
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  }
+
+  const getRandomNum = () => randomNum;
+
+  return { setRandomNum, getRandomNum };
+})();
+
+// Global variable
 let hoverTimeout;
 
 const resetButton = function() {
   updateTextInterval.reset();
   randomNum = randomNumCount.setRandomNum();
-  newText("I'm Feeling Lucky");
+  newText({text: "Lucky", link: "https://google.com"});
 }
 
 const changeText = function() {
