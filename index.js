@@ -1,4 +1,5 @@
 const newText = function(inputText) {
+  console.log(inputText);
   setTimeout(() => {
     const text = document.getElementById('lucky-text');
     text.classList.remove('text-out');
@@ -55,9 +56,16 @@ const buttonText = (() => {
     "I'm Feeling Bored"
   ];
 
+  let randomizeText = () => {
+    // Fishers-Yates shuffle algorithm
+    for (let i = text.length - 1; i > 0; i--) {
+      let rando = Math.floor(Math.random() * (i + 1));
+      [text[i], text[rando]] = [text[rando], text[i]];
+    }
+  }
   const getText = () => text;
 
-  return { getText };
+  return { getText, randomizeText };
 })();
 
 let hoverTimeout;
@@ -80,6 +88,7 @@ const changeText = function() {
 
 const feelingRandom = function() {
   randomNumCount.setRandomNum();
+  buttonText.randomizeText();
   changeText();
 }
 
