@@ -1,6 +1,12 @@
+const getLuckyText = function() {
+  const text = document.getElementById('lucky-text');
+
+  return text;
+}
+
 const newText = function(inputText) {
   setTimeout(() => {
-    const text = document.getElementById('lucky-text');
+    const text = getLuckyText();
     text.classList.remove('text-out');
     text.classList.add('text-in');
     text.textContent = `I'm Feeling ${inputText.text}`;
@@ -9,7 +15,7 @@ const newText = function(inputText) {
 }
 
 const oldText = function() {
-  const text = document.getElementById('lucky-text');
+  const text = getLuckyText();
   text.classList.remove('text-in');
   text.classList.add('text-out');
 }
@@ -30,6 +36,7 @@ const buttonText = (() => {
     { text: "Gamey", link: "https://pixelkin.org/game-picker/" },
     { text: "Scientific", link: "https://naturalhistory.si.edu/visit/virtual-tour" },
     { text: "Funny", link: "https://www.exocomics.com/" },
+    { text: "Curious", link: "https://www.gutenberg.org/" },
   ];
 
   let randomizeText = () => {
@@ -58,6 +65,17 @@ const randomNumCount = (() => {
   return { setRandomNum, getRandomNum };
 })();
 
+const setTextDirection = function() {
+  const randomNum = randomNumCount.getRandomNum();
+  const text = getLuckyText();
+
+  if (randomNum % 2 === 0) {
+    text.style.animationDirection = "normal";
+  } else {
+    text.style.animationDirection = "reverse";
+  }
+}
+
 // Global variable
 let hoverTimeout;
 
@@ -79,6 +97,7 @@ const changeText = function() {
 
 const feelingRandom = function() {
   randomNumCount.setRandomNum();
+  setTextDirection();
   buttonText.randomizeText();
   changeText();
 }
