@@ -1,26 +1,15 @@
+/* Note: to use top: % on Chrome, elements must have a defined height */
 @keyframes slidein {
   0% {
     top: -125%;
   }
-  25% {
-    top: -75%;
-  }
-  50% {
-    top: -50%;
-  }
   100% {
-    top: 0;
+    top: 50%;
   }
 }
 @keyframes slideout {
   0% {
-    top: 0;
-  }
-  25% {
     top: 50%;
-  }
-  50% {
-    top: 75%;
   }
   100% {
     top: 125%;
@@ -200,6 +189,9 @@ ul {
 #lucky-text {
   all: unset;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
 }
 
 #lucky-text:hover {
