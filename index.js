@@ -1,3 +1,5 @@
+/* Feeling Lucky Button: */
+
 const getLuckyText = function() {
   const text = document.getElementById('lucky-text');
 
@@ -129,3 +131,21 @@ const feelingLucky = function() {
 const button = document.getElementById('lucky-button');
 button.addEventListener('mouseenter', feelingRandom);
 button.addEventListener('mouseleave', feelingLucky);
+
+
+/* Search Input */
+
+const searchForInput = function(input) {
+  const query = input.replace(/\s/g, "+");
+  window.open(`https://www.google.com/search?q=${query}`, "_self");
+}
+
+const getSearchInput = function(submitEvent) {
+  submitEvent.preventDefault();
+  const input = Object.fromEntries(new FormData(submitEvent.target).entries()).searchInput;
+  submitEvent.target.reset();
+  searchForInput(input);
+}
+
+const searchForm = document.getElementById('search');
+searchForm.addEventListener('submit', e => getSearchInput(e));
