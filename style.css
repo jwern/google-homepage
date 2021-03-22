@@ -187,6 +187,7 @@ ul {
 }
 
 #lucky-text {
+  color: gray;
   all: unset;
   position: relative;
   top: 50%;
@@ -194,7 +195,7 @@ ul {
   display: inline-block;
 }
 
-#lucky-text:hover {
+a#lucky-text:hover {
   color: black;
 }
 
